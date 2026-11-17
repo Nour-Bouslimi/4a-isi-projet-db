@@ -38,8 +38,8 @@ erDiagram
         string nom
         string description
         float prix
-        date date_debut
-        date date_fin
+        date date_debut "NULL si permanent"
+        date date_fin "NULL si permanent"
     }
     menu_produit {
         int menu_id FK
@@ -47,7 +47,7 @@ erDiagram
     }
     fermeture {
         int id PK
-        date date "unique"
+        date date_fermeture "unique"
         string motif
     }
     commande {
