@@ -33,9 +33,9 @@ CREATE TABLE menu (
     nom         TEXT NOT NULL,
     description TEXT,
     prix        REAL NOT NULL CHECK (prix >= 0),
-    date_debut  TEXT NOT NULL,
-    date_fin    TEXT NOT NULL,
-    CHECK (date_fin >= date_debut)
+    date_debut  TEXT DEFAULT NULL,
+    date_fin    TEXT DEFAULT NULL,
+    CHECK (date_debut IS NULL OR date_fin IS NULL OR date_fin >= date_debut)
 );
 
 CREATE TABLE menu_produit (
@@ -46,7 +46,7 @@ CREATE TABLE menu_produit (
 
 CREATE TABLE fermeture (
     id    INTEGER PRIMARY KEY AUTOINCREMENT,
-    date  TEXT NOT NULL UNIQUE,
+    date_fermeture TEXT NOT NULL UNIQUE,
     motif TEXT
 );
 
